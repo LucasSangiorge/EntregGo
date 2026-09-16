@@ -40,4 +40,10 @@ Cadastro de entregadores (funcionário do galpão cadastra), cadastro de produto
 
 ## Status
 
-Pasta e estrutura (`app/models`, `app/schemas`, `app/crud`, `app/routers`) criadas. Ainda não iniciado o `requirements.txt`, `.gitignore`, `database.py` nem o Neon deste projeto (precisa criar um banco novo, separado do DigitalBankAPI). Próximo passo: configurar `requirements.txt`/`.gitignore`, criar conta/banco no Neon, e começar pelo `database.py`.
+Banco no Neon criado, `database.py` configurado, repositório no GitHub conectado (`github.com/LucasSangiorge/EntregGo`), CI configurado (`.github/workflows/tests.yml`, GitHub Actions rodando testes a cada push).
+
+As três entidades (`Entregador`, `Produto`, `Entrega`) têm CRUD completo (model → schema → crud → router, registradas no `main.py`), com testes automatizados via pytest (SQLite em memória, isolado do Neon) — 12 testes passando. `Entrega` já valida a existência de `produto_id`/`entregador_id` antes do insert (retorna 404 em vez de deixar a violação de FK do Postgres estourar como 500).
+
+**Falta**: a regra de negócio central (atribuição automática de entregador por peso/tipo de veículo) ainda não foi implementada — só existe o CRUD genérico de `Entrega`. Decisão tomada: a atribuição vai ser uma ação separada da criação (ex.: `POST /entregas/{id}/atribuir`), não automática no `POST /entregas/`, pra imitar melhor o fluxo real (pedido existe primeiro, atribuição acontece depois) e facilitar teste isolado de cada etapa.
+
+Sem Alembic neste projeto (decisão consciente, ver seção de Decisões técnicas — o próximo projeto de portfólio depois deste é que vai introduzir Alembic desde o início).

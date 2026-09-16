@@ -31,3 +31,15 @@ def atualizar(entrega_id: int, entrega: EntregaUpdate, db: Session = Depends(get
     if db_entrega is None:
         raise HTTPException(status_code=404, detail="Entrega não encontrada")
     return db_entrega
+
+@router.post("/{entrega_id}/atribuir", response_model=EntregaResponse)
+def atribuir(entrega_id: int, db: Session = Depends(get_db)):
+    db_entrega = crud_entrega.buscar_entrega(db, entrega_id)
+    if db_entrega is None:
+        raise HTTPException(status_code=404, detail="Entrega não encontrada")
+
+    entregador = crud_entrega.atribuir_entregador(db, db_entrega)
+    if entregador is None:
+        raise HTTPException(status_code=409, detail="Nenhum entregador disponível para o tipo de veículo necessário")
+
+    return db_entrega
