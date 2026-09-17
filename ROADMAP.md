@@ -46,4 +46,4 @@ As três entidades (`Entregador`, `Produto`, `Entrega`) têm CRUD completo (mode
 
 **Falta**: a regra de negócio central (atribuição automática de entregador por peso/tipo de veículo) ainda não foi implementada — só existe o CRUD genérico de `Entrega`. Decisão tomada: a atribuição vai ser uma ação separada da criação (ex.: `POST /entregas/{id}/atribuir`), não automática no `POST /entregas/`, pra imitar melhor o fluxo real (pedido existe primeiro, atribuição acontece depois) e facilitar teste isolado de cada etapa.
 
-Sem Alembic neste projeto (decisão consciente, ver seção de Decisões técnicas — o próximo projeto de portfólio depois deste é que vai introduzir Alembic desde o início).a
+Sem Alembic neste projeto (decisão consciente, ver seção de Decisões técnicas — o próximo projeto de portfólio depois deste é que vai introduzir Alembic desde o início).
