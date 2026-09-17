@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>EntregGo — Encomendas</title>
+    <link rel="stylesheet" href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Entrego<span>Go</span> — Galpão</h1>
+        <nav>
+            <a href="index.html">Entregadores</a>
+            <a href="encomendas.html" class="ativo">Encomendas</a>
+            <a href="resultado.html">Painel</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2>Cadastrar produto</h2>
+            <form id="form-produto">
+                <label>Nome
+                    <input type="text" id="p-nome" placeholder="Ex: Geladeira" required>
+                </label>
+                <label>Peso (kg)
+                    <input type="number" id="p-peso" step="0.1" required>
+                </label>
+                <label>Altura (cm)
+                    <input type="number" id="p-altura" step="0.1" required>
+                </label>
+                <label>Largura (cm)
+                    <input type="number" id="p-largura" step="0.1" required>
+                </label>
+                <label>Profundidade (cm)
+                    <input type="number" id="p-profundidade" step="0.1" required>
+                </label>
+                <label>Cidade origem
+                    <input type="text" id="p-origem" required>
+                </label>
+                <label>Cidade destino
+                    <input type="text" id="p-destino" required>
+                </label>
+                <button type="submit">Cadastrar produto</button>
+            </form>
+            <p id="msg-produto" class="msg"></p>
+        </div>
+
+        <div class="card">
+            <h2>Criar encomenda (entrega)</h2>
+            <form id="form-entrega">
+                <label>Produto
+                    <select id="e-produto-id" required></select>
+                </label>
+                <button type="submit">Criar entrega</button>
+            </form>
+            <p id="msg-entrega" class="msg"></p>
+        </div>
+
+        <div class="card">
+            <h2>Encomendas em aberto</h2>
+            <button id="btn-atualizar-entregas">Atualizar lista</button>
+            <div class="tabela-wrap" id="tabela-entregas"></div>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script>
+    <script src="encomendas.js"></script>
+</body>
+</html>

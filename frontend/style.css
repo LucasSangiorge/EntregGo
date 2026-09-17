@@ -1,0 +1,191 @@
+:root {
+    --azul: #1d4ed8;
+    --azul-escuro: #1e3a8a;
+    --laranja: #ea580c;
+    --verde: #16a34a;
+    --vermelho: #dc2626;
+    --cinza-bg: #f3f4f6;
+    --cinza-borda: #e5e7eb;
+    --texto: #111827;
+    --texto-suave: #6b7280;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    background: var(--cinza-bg);
+    color: var(--texto);
+}
+
+header {
+    background: var(--azul-escuro);
+    color: white;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+header h1 span {
+    color: var(--laranja);
+}
+
+nav {
+    display: flex;
+    gap: 8px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.1);
+    transition: background 0.15s;
+}
+
+nav a:hover,
+nav a.ativo {
+    background: var(--laranja);
+}
+
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 20px 60px;
+}
+
+.card {
+    background: white;
+    border: 1px solid var(--cinza-borda);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.card h2 {
+    margin-top: 0;
+    font-size: 1.1rem;
+    color: var(--azul-escuro);
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+form label {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    color: var(--texto-suave);
+    gap: 4px;
+}
+
+input, select {
+    padding: 8px 10px;
+    border: 1px solid var(--cinza-borda);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    min-width: 140px;
+}
+
+button {
+    padding: 9px 18px;
+    border: none;
+    border-radius: 6px;
+    background: var(--azul);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.15s;
+}
+
+button:hover {
+    background: var(--azul-escuro);
+}
+
+button.secundario {
+    background: var(--laranja);
+}
+
+button.secundario:hover {
+    background: #c2410c;
+}
+
+.msg {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.msg.sucesso {
+    color: var(--verde);
+}
+
+.msg.erro {
+    color: var(--vermelho);
+}
+
+.tabela-wrap {
+    margin-top: 16px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.badge.pendente { background: #fef3c7; color: #92400e; }
+.badge.em_transporte { background: #dbeafe; color: #1e40af; }
+.badge.entregue { background: #dcfce7; color: #166534; }
+.badge.disponivel { background: #dcfce7; color: #166534; }
+.badge.ocupado { background: #fee2e2; color: #991b1b; }
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.stat {
+    background: white;
+    border: 1px solid var(--cinza-borda);
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+}
+
+.stat .numero {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--azul-escuro);
+}
+
+.stat .rotulo {
+    font-size: 0.8rem;
+    color: var(--texto-suave);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}

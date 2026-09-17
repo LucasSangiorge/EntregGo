@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>EntregGo — Painel de Entregas</title>
+    <link rel="stylesheet" href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Entrego<span>Go</span> — Galpão</h1>
+        <nav>
+            <a href="index.html">Entregadores</a>
+            <a href="encomendas.html">Encomendas</a>
+            <a href="resultado.html" class="ativo">Painel</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="stats" id="stats"></div>
+
+        <div class="card">
+            <h2>Todas as entregas</h2>
+            <button id="btn-atualizar-painel">Atualizar</button>
+            <div class="tabela-wrap" id="tabela-painel"></div>
+        </div>
+    </main>
+
+    <script src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script>
+    <script src="resultado.js"></script>
+</body>
+</html>

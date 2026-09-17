@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from app.database import Base, engine
 from app.routers import entregador, produto, entrega
@@ -20,3 +21,5 @@ app.add_middleware(
 app.include_router(entregador.router)
 app.include_router(produto.router)
 app.include_router(entrega.router)
+
+app.mount("/", StaticFiles(directory="frontend", html=True), name="frontend")
